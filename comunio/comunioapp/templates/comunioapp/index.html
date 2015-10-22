@@ -1,0 +1,25 @@
+
+<html>
+	<head>
+		<title>Equipo</title>
+	</head>
+	<body>
+		{% if lista_equipos %}
+			<table border="2">
+				<tr>
+					<td>Nombre</td>
+					<td>Fecha</td>
+				</tr>
+				{% for Equipo in lista_equipos %}
+					<tr>
+						<td>{{ Equipo.numero }}</td>
+						<td>{{ Equipo.jugadores }}</td>
+                  <td>{{ Equipo.fecha }}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		{% else %}
+			<p>No hay equipos</p>			
+		{% endif %}
+	</body>
+</html>
