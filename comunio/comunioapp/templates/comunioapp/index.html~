@@ -10,11 +10,11 @@
 					<td>Nombre</td>
 					<td>Fecha</td>
 				</tr>
-				{% for equipo in lista_equipos %}
+				{% for Equipo in lista_equipos %}
 					<tr>
-						<td>{{ equipo.numero }}</td>
-						<td>{{ equipo.jugadores }}</td>
-                  <td>{{ equipo.fecha }}</td>
+						<td>{{ Equipo.numero }}</td>
+						<td>{{ Equipo.jugadores }}</td>
+                  <td>{{ Equipo.fecha }}</td>
 					</tr>
 				{% endfor %}
 			</table>
