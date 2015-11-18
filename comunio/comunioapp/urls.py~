@@ -3,10 +3,10 @@ from django.contrib import admin
 from comunioapp import views
 
 urlpatterns = [
-    # Examples:
-    # url(r'^$', 'comunio.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-   
-    
-	 url(r'^$', views.home, name='home')),
+   url(r'^$', views.home, name='home'),
+	 url(r'^(?P<receta_id>\d+)/$',views.detalle_alineacion, name='detalle_alineacion'),
+    url(r'^registro$', views.registro, name='registro'),
+    url(r'^login$', views.loginpage, name='login'),
+    url(r'^logout$', views.logoutpage, name='logout'),
+	 url(r'^addalineacion$', views.addalineacion, name='addalineacion'),	
 ]

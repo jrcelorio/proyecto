@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<title>Alineación de mi equipo</title>
+	</head>
+	<body>
+		<h1>{{equipo.nombre}}</h1>
+		<p>{{jugadores.nombre}}</p>
+		<ul>
+			{% for nombre in jugadores.nombre.all %}
+				<li>{{ jugadores.nombre }}</li>
+			{% endfor %}
+		</ul>
+		<a href="{% url 'indice' %}">Volver</a>			
+	</body>
+</html>

@@ -4,20 +4,20 @@ from django.db import models
 
 class Equipo(models.Model):
 	nombre = models.CharField(max_length=30)
-	descripcion = models.TextField()
+	estadio = models.TextField()
 
-			def __str__(self):
-					return '%s' % (self.nombre)
+	def __str__(self):
+		return '%s' % (self.nombre)
 
 class Jugadores(models.Model):
 	nombre = models.CharField(max_length=30)
-	Equipo = models.TextField()
+	equipo = models.TextField()
 	equipos = models.ManyToManyField(Equipo, 
-	through='equipo_jugador')
+	through='Equipo_jugador')
 	edad = models.IntegerField()
 	
-			def __str__(self):
-					return '%s' % (self.nombre)
+	def __str__(self):
+		return '%s' % (self.nombre)
 
 class Jornada(models.Model):
 	numero = models.TextField()
@@ -26,18 +26,18 @@ class Jornada(models.Model):
 	def __str__(self):
 		return '%s' % (self.nombre)
 
-class equipo_jugador(models.Model):
-	Equipo = models.ForeignKey(Equipo)
-	Jugadores = models.ForeignKey(Jugadores)
-	Jornada = models.IntegerField()
+class Equipo_jugador(models.Model):
+	equipo = models.ForeignKey(Equipo)
+	jugadores = models.ForeignKey(Jugadores)
+	jornada = models.IntegerField()
 
 class jugador_jornada(models.Model):
-	Jugadores = models.ForeignKey(Jugadores) 
-	Jornada = models.ForeignKey(Jornada)
-	Puntuación = models.IntegerField()
+	jugadores = models.ForeignKey(Jugadores) 
+	jornada = models.ForeignKey(Jornada)
+	puntuación = models.IntegerField()
 
 class Noticias(models.Model):
-	Descripcion = models.TextField()
+	descripcion = models.TextField()
 
 	def __str__(self):
 		return '%s' % (self.nombre)
