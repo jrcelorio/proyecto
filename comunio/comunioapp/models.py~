@@ -4,17 +4,16 @@ from django.db import models
 
 class Equipo(models.Model):
 	nombre = models.CharField(max_length=30)
-	estadio = models.TextField()
+	descripcion = models.TextField()
 
 	def __str__(self):
 		return '%s' % (self.nombre)
 
 class Jugadores(models.Model):
 	nombre = models.CharField(max_length=30)
-	equipo = models.TextField()
 	equipos = models.ManyToManyField(Equipo, 
 	through='Equipo_jugador')
-	edad = models.IntegerField()
+	edad = models.IntegerField(null=True)
 	
 	def __str__(self):
 		return '%s' % (self.nombre)

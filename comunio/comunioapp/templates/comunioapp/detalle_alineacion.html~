@@ -1,16 +1,15 @@
 <html>
 	<head>
-		<title>Top Chef</title>
+		<title>Comunio</title>
 	</head>
 	<body>
-		<h1>{{receta.nombre}}</h1>
-		<p>{{receta.instrucciones}}</p>
+		<h1>{{equipo.nombre}}</h1>
+		<p>{{jugadores.nombre}}</p>
 		<ul>
-			{% for ingrediente in receta.ingredientes.all %}
-				<li>{{ ingrediente.nombre }}</li>
+			{% for nombre in equipo.nombre.all %}
+				<li>{{ jugadores.nombre }}</li>
 			{% endfor %}
 		</ul>
-		<p>{{ receta.fecha|date:"D d M Y - H:i" }}</p>
-		<a href="{% url 'indice' %}">Volver</a>			
+		<a href="{% url 'home' %}">Volver</a>			
 	</body>
 </html>

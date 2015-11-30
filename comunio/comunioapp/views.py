@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from comunioapp.models import Equipo
 from comunioapp.forms import ComunioForm
 
+
 # Create your views here.
 
 def home(request):
@@ -12,7 +13,7 @@ def home(request):
    return render(request, 'comunioapp/index.html', {'lista_equipos': lista_equipos })
 
 def detalle_alineacion(request,alineacion_id):
-	receta = get_object_or_404(Alineacion, pk = alineacion_id)
+	alineacion = get_object_or_404(alineacion, pk = alineacion_id)
 	return render(request, 'comunioapp/detalle_alineacion.html', {'alineacion': alineacion })
 
 def registro(request):
@@ -45,9 +46,12 @@ def logoutpage(request):
 
 def addalineacion(request):
 	if request.method == "POST":
-		form = RecetaForm(request.POST)
+		form = ComunioForm(request.POST)
 		if form.is_valid():
-			receta = form.save()
-			receta.save()
+			equipo = form.save()
+			equipo.save()
 			return HttpResponseRedirect("/")
+	else:
+		form = ComunioForm()
+	return render(request, 'comunioapp/add_alineacion.html', {'form': form})
 	

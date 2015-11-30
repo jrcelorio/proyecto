@@ -1,13 +1,13 @@
 <html>
 	<head>
-		<title>Alineación</title>
+		<title>Comunio</title>
 	</head>
 	<body>
-		<h1>Añadir alineación</h1>
+		<h1>Añadir Receta</h1>
 		<form method="POST"> {% csrf_token %}
 			{{ form.as_p }}
 			<button type="submit">Guardar</button>
 		</form>
-		<a href="{% url 'indice' %}">Volver</a>			
+		<a href="{% url 'home' %}">Volver</a>			
 	</body>
 </html>

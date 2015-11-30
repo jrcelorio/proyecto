@@ -20,12 +20,12 @@
 		{% if lista_equipos %}
 			<table border="2">
 				<tr>
-					<td>Nombre</td>daline
-					<td>Fecha</td>
+					<td>Nombre</td>
+					<td>Descripcion</td>
 				</tr>
 				{% for equipo in lista_equipos %}
 					<tr>
-						<td><a href="{% url 'detalle_alineacion' alineacion.id %}">{{ equipo.nombre }}</a></td>
+						<td><a href="{% url 'detalle_alineacion' equipo.id %}">{{ equipo.nombre }}</a></td>
 					</tr>
 				{% endfor %}
 			</table>
